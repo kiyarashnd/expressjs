@@ -94,31 +94,6 @@ fs.writeFile(
 //   }
 // );
 
-fs.open(path.join(__dirname, 'file', 'starter.txt'), 'r', function (err, fd) {
-  if (err) {
-    return console.error(err);
-  }
-
-  //   var buffr = new Buffer(1024);
-
-  //   fs.read(fd, buffr, 0, buffr.length, 0, function (err, bytes) {
-  //     if (err) throw err;
-
-  //     // Print only read bytes to avoid junk.
-  //     if (bytes > 0) {
-  //       console.log(buffr.slice(0, bytes).toString());
-  //     }
-
-  //     // Close the opened file.
-  //     fs.close(fd, function (err) {
-  //       if (err) throw err;
-  //     });
-  //   });
-});
-
-fs.unlink(path.join(__dirname, 'file', 'lorem.txt'), function () {
-  console.log('File Deleted Successfully.');
-});
 */
 //how to prevent from callback hell :
 const fsPromise = require('fs').promises;
@@ -128,32 +103,39 @@ const fileOps = async () => {
   try {
     const data = await fsPromise.readFile(
       path.join(__dirname, 'file', 'starter.txt'),
-      'utf-8'
+      'utf-8',
+      console.log('1-read file')
     );
-    console.log(data);
+    console.log('out of first ');
 
-    await fsPromise.unlink(path.join(__dirname, 'file', 'starter.txt')); //unlink for delete file
+    await fsPromise.unlink(
+      path.join(__dirname, 'file', 'starter.txt'),
+      console.log('2-delete file')
+    ); //unlink for delete file
 
     await fsPromise.writeFile(
       path.join(__dirname, 'file', 'promiseWrite.txt'),
-      data
+      data,
+      console.log('3-write file')
     );
 
     await fsPromise.appendFile(
       path.join(__dirname, 'file', 'promiseWrite.txt'),
-      '\n\nNice to meet you'
+      '\n\nNice to meet you',
+      console.log('4-append file')
     );
 
     await fsPromise.rename(
       path.join(__dirname, 'file', 'promiseWrite.txt'),
-      path.join(__dirname, 'file', 'promiseComplete.txt')
+      path.join(__dirname, 'file', 'promiseComplete.txt'),
+      console.log('5-rename file ')
     );
 
     const newData = await fsPromise.readFile(
       path.join(__dirname, 'file', 'promiseComplete.txt'),
       'utf-8'
     );
-    console.log(newData);
+    console.log('after latest function');
   } catch (err) {
     console.log(err);
   }
