@@ -1,3 +1,4 @@
+/*
 const http = require('http');
 const path = require('path');
 const fs = require('fs');
@@ -13,6 +14,7 @@ myEmitter.on('log', (msg, fileName) => logEvents(msg, fileName));
 
 const PORT = process.env.PORT || 3500;
 
+//serveFile function for show file in browser
 const serveFile = async (filePath, contentType, response) => {
   try {
     const rawData = await fsPromises.readFile(
@@ -39,13 +41,13 @@ const serveFile = async (filePath, contentType, response) => {
 };
 
 const server = http.createServer((req, res) => {
-  console.log(req.url, req.method);
-  myEmitter.emit('log', `${req.url}\t${req.method}`, 'reqLog.txt');
+  myEmitter.emit('log', `${req.url}\t${req.method}`, 'reqLog.txt'); // '/img/2.png'
 
-  const extension = path.extname(req.url);
+  const extension = path.extname(req.url); //.png
 
   let contentType;
 
+  //here extension is extension of file that reads from url
   switch (extension) {
     case '.css':
       contentType = 'text/css';
@@ -106,15 +108,86 @@ const server = http.createServer((req, res) => {
         serveFile(path.join(__dirname, 'views', '404.html'), 'text/html', res);
     }
   }
-  //   let filePath;
-  //   switch (req.url) {
-  //     case '/':
-  //       res.statusCode = 200;
-  //       filePath = filePath.join(__dirname, 'views', 'index.html');
-  //       fs.readFile(path, 'utf8', (err, data) => {
-  //         res.end(data);
-  //       });
-  //       break;
-  //   }
 });
 server.listen(PORT, () => console.log(`Server running on prot ${PORT}`));
+*/
+/*
+var http = require('http'); // Import Node.js core module
+
+var server = http.createServer(function (req, res) {
+  //create web server
+  if (req.url == '/') {
+    //check the URL of the current request
+
+    // set response header
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+
+    // set response content
+    res.write('<html><body><p>This is home Page.</p></body></html>');
+    console.log('hello'); //this showin in the terminal
+    res.end();
+  } else if (req.url == '/student') {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write('<html><body><p>This is student Page.</p></body></html>');
+    res.end();
+  } else if (req.url == '/admin') {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write('<html><body><p>This is admin Page.</p></body></html>');
+    res.end();
+  } else if (req.url == '/data') {
+    //check the URL of the current request
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.write(JSON.stringify({ message: 'Hello World' }));
+    res.end();
+  } else res.end('Invalid Request!');
+});
+
+server.listen(5000); //6 - listen for any incoming requests
+
+console.log('Node.js web server at port 5000 is running..');
+*/
+
+//for set cors in express :
+
+var http = require('http');
+var express = require('express');
+var cors = require('cors'); // Import the cors middleware
+
+var app = express();
+app.use(cors()); // Enable CORS for all routes
+
+var server = http.createServer(app);
+
+app.get('/', function (req, res) {
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.write('<html><body><p>This is home Page.</p></body></html>');
+  res.end();
+});
+
+app.get('/student', function (req, res) {
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.write('<html><body><p>This is student Page.</p></body></html>');
+  res.end();
+});
+
+app.get('/admin', function (req, res) {
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.write('<html><body><p>This is admin Page.</p></body></html>');
+  res.end();
+});
+
+app.get('/data', function (req, res) {
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.write(
+    JSON.stringify({
+      message: 'Hello World',
+      name: 'kiyarash',
+      lastName: 'nd',
+      age: 23,
+    })
+  );
+  res.end();
+});
+
+server.listen(5000);
+console.log('Node.js web server at port 5000 is running..');
