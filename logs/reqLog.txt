@@ -1,31 +1,39 @@
-20231109	21:47:16	b7b267d4-8ac6-45b4-a885-25fbe4f26af8	/index	GET
-20231109	21:47:16	e148cb27-69f0-4d46-8d05-0f0988a67517	/css/style.css	GET
-20231109	21:47:16	2fc78126-5f78-4cda-ab28-c22ca5ba1a4d	/favicon.ico	GET
-20231109	21:47:27	752d0673-2d41-49a9-9a99-7fc121578dcd	/new-page.html	GET
-20231109	21:47:27	701a142b-9fca-49c3-8ac7-5244948f4044	/img/2.png	GET
-20231109	21:51:09	d352a038-5bca-4f7b-a3e7-0cdf8c4cb685	/subdir/	GET
-20231109	21:52:19	c811fc7a-ef10-4427-980e-97860e68b0f3	/subdir/	GET
-20231110	22:20:27	ffdd996a-6ffe-4dd0-b58a-6a1538cb3405	/subdir/	GET
-20231110	22:20:39	ffa1d639-724e-4aa1-abec-3491644d2f96	/new-page.html	GET
-20231110	22:20:39	90c870e4-0955-4692-b732-1b98b32f8d16	/img/2.png	GET
-20231113	13:33:22	d4a96fa9-27fa-402c-8964-cb8c865495d8	/new-page.html	GET
-20231113	13:33:22	b383c5a2-bb6b-4192-bde8-044542fec52f	/img/2.png	GET
-20231122	14:40:44	3865f232-9b59-4cbc-b0d4-c2baea658a48	/new-page.html	GET
-20231122	14:40:44	8892ba7a-1046-4790-b6e6-7caed1efa870	/img/2.png	GET
-20231122	14:40:44	459332e0-7ad9-40f9-8d10-113756408008	/favicon.ico	GET
-20231122	14:41:58	d643fe03-1801-464e-a59e-7809c40c6954	/new-page.html	GET
-20231122	14:41:58	9af5067b-5298-46df-973c-33fb56ef7b30	/img/2.png	GET
-20231122	14:42:43	5a63a230-7b8c-4859-a231-283379004d92	/new-page.html	GET
-20231122	14:42:43	9d8f4a18-b22e-43cf-915f-8e598ec7336f	/img/2.png	GET
-20231122	14:42:46	86964681-8459-408d-a44f-0b353616f2d9	/new-page.html	GET
-20231122	14:42:46	c33bfec9-1bdf-4cf0-9bad-1a08b59e3426	/img/2.png	GET
-20231122	14:42:50	94e9bbaa-d4bf-4ff4-9073-fc9f442c9a59	/	GET
-20231122	14:42:50	c796efdd-ae1f-457b-85ba-50cbe558061c	/css/style.css	GET
-20231122	14:43:32	ba336009-63d4-4f0a-b4ec-0f1f730238ab	/new-page.html	GET
-20231122	14:43:32	644df474-ba43-412d-97be-593a27ef7e0b	loggggg/new-page.html	GET
-20231122	14:43:32	c920c8ac-306b-4111-b6b5-85ad339fa97b	/img/2.png	GET
-20231122	14:43:32	003f36ad-6ae6-4b4a-b72b-9be2e83ddad5	loggggg/img/2.png	GET
-20231122	14:45:47	58f2650d-e794-4e6b-af9a-ca7303abbb1b	/new-page.html	GET
-20231122	14:45:47	12ef2754-fdda-4c95-b464-87c0d2d66eaf	/new-page.html	GET,extension is : .html
-20231122	14:45:47	0c702422-1a76-4176-a120-e9311fd66406	/img/2.png	GET
-20231122	14:45:47	3dfce47e-8518-406d-b4ba-5db35e811273	/img/2.png	GET,extension is : .png
+20231128	15:16:04	9af91aec-8f64-4d48-b5e8-520926a7d75b	GET	undefined	/new-page.html
+20231128	15:16:04	d72b342a-4147-4f09-a7da-a29861a460e2	GET	undefined	/img/2.png
+20231128	15:16:12	c12442dc-dd53-456e-b47e-d57d06369657	GET	undefined	/new-page.html
+20231128	15:16:12	9e515d17-62af-4dfe-b82a-d11c783bc34a	GET	undefined	/img/2.png
+20231128	15:19:33	02e6b65e-e59a-4f63-b230-87f64f61cfa5	GET	undefined	/new-page.html
+20231128	15:19:33	d8ef601a-a905-4b13-99d0-ff59349656be	GET	undefined	/img/2.png
+20231128	15:21:11	7fca74e7-9715-47ed-968a-11d56fb75e70	GET	https://www.google.com	/
+20231128	15:25:56	bc3027b0-d07b-40ff-8de0-2a20d1832006	GET	https://www.google.com	/
+20231128	18:17:43	ee7b00b7-4c98-4fd2-8e37-d0bc5355ef87	GET	https://www.google.com	/
+20231128	18:28:28	4fa5a4b8-bf87-4a39-9192-d40bbfe36684	GET	undefined	/new-page.html
+20231128	18:28:28	47a4bcfc-5c9a-4d50-aa16-da4e398c2bca	GET	undefined	/img/2.png
+20231128	18:28:32	ab1737a9-43f6-4de5-9ed4-968e621d1260	GET	undefined	/
+20231128	18:28:32	69277980-d5df-446b-b605-9e995f435fa6	GET	undefined	/css/style.css
+20231128	18:35:13	cba893c8-fcee-4d6c-8733-6648539f200a	GET	undefined	/
+20231128	18:35:13	ec14aec8-03a6-42ab-a5e0-482bdba35f3e	GET	undefined	/css/style.css
+20231128	18:38:16	053c80a6-b9cc-4a1b-a552-0ad4b766aab8	GET	undefined	/k
+20231129	13:29:23	c7a97ee8-b578-4c3b-abe7-4064fe448f68	GET	undefined	/old-page
+20231129	13:29:23	ba4d56b2-b39d-4cb4-ba06-434121f36a4e	GET	undefined	/new-page.html
+20231129	13:29:23	af425bc4-ff2d-46d8-a807-ff0d912a7f5b	GET	undefined	/img/2.png
+20231129	13:29:24	bf089eb6-5594-4711-8085-affc30c57f70	GET	undefined	/favicon.ico
+20231129	13:29:47	b7198e89-10d3-46d6-be30-ec501fbe5c85	GET	undefined	/new-page.html
+20231129	13:29:47	71c61cf9-7a48-4405-bf17-b6ecd38803ec	GET	undefined	/img/2.png
+20231129	13:30:01	f340f1d5-9695-40fa-8e7f-981cfab8db45	GET	undefined	/hello.html
+20231129	13:30:09	c6da76e2-e261-40de-a5f5-95b571f39918	GET	undefined	/hello
+20231129	13:30:10	599aaa41-d139-4d7f-930f-13a8d45f81d1	GET	undefined	/
+20231129	13:30:10	05c4944d-ba82-4f84-8226-13e695a019b1	GET	undefined	/css/style.css
+20231129	13:34:11	7df2bd4f-78a3-49c1-af2a-2fac261996ba	GET	undefined	/
+20231129	13:35:02	dc8531e2-e12a-40d0-848a-8fbd97af6c53	GET	undefined	/post
+20231129	13:35:10	e97c7a5d-d652-46f8-92f0-262ca635155d	GET	undefined	/post
+20231129	13:35:15	61391dff-d220-456e-9b77-b093b692407f	GET	undefined	/post
+20231129	13:35:28	4e512c1d-c99c-4d9d-8d05-32afc2860910	GET	undefined	/post
+20231202	12:18:40	6e2506b0-8513-4345-bde8-a3c51338047a	GET	undefined	/post
+20231202	12:18:43	45923140-31c3-48b6-a96f-315174a4ee08	GET	undefined	/
+20231202	12:18:43	e0e26d43-bf54-480b-b225-c68c8390d1cf	GET	undefined	/css/style.css
+20231202	12:50:27	60e3c739-9dd5-4228-8214-ca18ab9d17b2	GET	undefined	/new-page.html
+20231202	12:50:28	bb6392c6-e72e-4e1d-ac74-6001684f8ef3	GET	undefined	/img/2.png
+20231202	12:50:37	c0068a6a-db03-420c-bf51-718692c16ed4	GET	undefined	/
+20231202	12:50:37	3b5d4666-db92-4b94-9e87-ac3d588031fa	GET	undefined	/css/style.css
+20231202	12:51:55	d918acbe-8069-4f6b-b664-9af1fb3fd190	GET	undefined	/hhh

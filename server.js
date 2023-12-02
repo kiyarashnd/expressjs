@@ -1,8 +1,45 @@
 const express = require('express');
 const app = express();
-
 const path = require('path');
+const cors = require('cors');
+const { logger } = require('./middleware/logEvent');
+const errorHandler = require('./middleware/errorHandler');
 const PORT = process.env.PORT || 3500;
+
+app.use(logger);
+
+//Cross Origin Resource Sharing
+const whiteList = [
+  'https://www.yoursite.com',
+  'http://127.0.0.1:5500',
+  'http://localhost:3500',
+];
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (whiteList.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  OptionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
+
+//built-in middleware to handle URLencoded data
+//for when data is submited
+app.use(express.urlencoded({ extended: false })); //this line applies for all below http method
+
+//built-in middleware for json
+app.use(express.json());
+
+//serve static file
+app.use(express.static(path.join(__dirname, '/public'))); //for apply css and image file in public folder
+
+app.use('/new-page.html', (req, res, next) => {
+  console.log('hiiii');
+  next();
+});
 
 //below regex says if start with slash or end with slash or index.html or just index
 app.get('^/$|/index(.html)?', (req, res) => {
@@ -50,90 +87,27 @@ const three = (req, res, next) => {
 app.get('/chain(.html)?', [one, two, three]);
 
 ///* mean / and anything
-app.get('/*', (req, res) => {
-  res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
+// app.get('/*', (req, res) => {
+//   res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
+// });
+
+//app.use('/')
+app.all('*', (req, res) => {
+  res.status(404);
+  if (req.accepts('html')) {
+    res.sendFile(path.join(__dirname, 'views', '404.html'));
+  } else if (req.accepts('json')) {
+    res.json({ error: '404 Not Found' });
+  } else {
+    res.type('txt').send('404 Not Found');
+  }
 });
+
+// app.use(function (err, req, res, next) {
+//   console.error(err.stack);
+//   res.status(500).send(err.message);
+// });
+
+app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`Server running on prot ${PORT}`));
-
-/*
-var http = require('http'); // Import Node.js core module
-
-var server = http.createServer(function (req, res) {
-  //create web server
-  if (req.url == '/') {
-    //check the URL of the current request
-
-    // set response header
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-
-    // set response content
-    res.write('<html><body><p>This is home Page.</p></body></html>');
-    console.log('hello'); //this showin in the terminal
-    res.end();
-  } else if (req.url == '/student') {
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.write('<html><body><p>This is student Page.</p></body></html>');
-    res.end();
-  } else if (req.url == '/admin') {
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.write('<html><body><p>This is admin Page.</p></body></html>');
-    res.end();
-  } else if (req.url == '/data') {
-    //check the URL of the current request
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.write(JSON.stringify({ message: 'Hello World' }));
-    res.end();
-  } else res.end('Invalid Request!');
-});
-
-server.listen(5000); //6 - listen for any incoming requests
-
-console.log('Node.js web server at port 5000 is running..');
-*/
-
-//for set cors in express :
-/*
-var http = require('http');
-var express = require('express');
-var cors = require('cors'); // Import the cors middleware
-
-var app = express();
-app.use(cors()); // Enable CORS for all routes
-
-var server = http.createServer(app);
-
-app.get('/', function (req, res) {
-  res.writeHead(200, { 'Content-Type': 'text/html' });
-  res.write('<html><body><p>This is home Page.</p></body></html>');
-  res.end();
-});
-
-app.get('/student', function (req, res) {
-  res.writeHead(200, { 'Content-Type': 'text/html' });
-  res.write('<html><body><p>This is student Page.</p></body></html>');
-  res.end();
-});
-
-app.get('/admin', function (req, res) {
-  res.writeHead(200, { 'Content-Type': 'text/html' });
-  res.write('<html><body><p>This is admin Page.</p></body></html>');
-  res.end();
-});
-
-app.get('/data', function (req, res) {
-  res.writeHead(200, { 'Content-Type': 'application/json' });
-  res.write(
-    JSON.stringify({
-      message: 'Hello World',
-      name: 'kiyarash',
-      lastName: 'nd',
-      age: 23,
-    })
-  );
-  res.end();
-});
-
-server.listen(5000);
-console.log('Node.js web server at port 5000 is running..');
-*/
