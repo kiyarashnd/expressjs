@@ -34,57 +34,14 @@ app.use(express.urlencoded({ extended: false })); //this line applies for all be
 app.use(express.json());
 
 //serve static file
-app.use(express.static(path.join(__dirname, '/public'))); //for apply css and image file in public folder
+app.use('/', express.static(path.join(__dirname, '/public'))); //for apply css and image file in public folder
+//for apply statics file to subdir directory
+app.use('/subdir', express.static(path.join(__dirname, '/public')));
 
-app.use('/new-page.html', (req, res, next) => {
-  console.log('hiiii');
-  next();
-});
-
-//below regex says if start with slash or end with slash or index.html or just index
-app.get('^/$|/index(.html)?', (req, res) => {
-  // res.send('Hello world!');
-  // res.sendFile('./views/index.html', { root: __dirname });
-  res.sendFile(path.join(__dirname, 'views', 'index.html'));
-});
-
-app.get('/new-page.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'new-page.html'));
-});
-
-app.get('/old-page(.html)?', (req, res) => {
-  res.redirect('/new-page.html'); //302 by default
-});
-
-//Route handlers
-app.get(
-  '/hello(.html)?',
-  (req, res, next) => {
-    console.log('attempted to load hello.html');
-    next();
-  },
-  (req, res) => {
-    res.json({ user: 'kiya', age: 23 });
-  }
-);
-
-//chaining route handlers
-const one = (req, res, next) => {
-  console.log('one');
-  next();
-};
-
-const two = (req, res, next) => {
-  console.log('two');
-  next();
-};
-
-const three = (req, res, next) => {
-  console.log('three');
-  res.send('Finished!');
-};
-
-app.get('/chain(.html)?', [one, two, three]);
+//routes
+app.use('/', require('./routes/root'));
+app.use('/subdir', require('./routes/subdir'));
+app.use('/employees', require('./routes/api/employees'));
 
 ///* mean / and anything
 // app.get('/*', (req, res) => {
